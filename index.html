@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Utume wa Mama Hannah (UMH) — Kuwasaidia Makatekista na jamii kwa upendo, huruma, na ukarimu.">
+  <title>Utume wa Mama Hannah (UMH)</title>
+  <style>
+    :root {
+      --primary: #0d6efd;       /* Bluu ya upendo / misaada */
+      --secondary: #0b3d91;     /* Bluu ya imani / utulivu */
+      --accent: #28a745;        /* Kijani cha matumaini */
+      --bg: #f7f9fc;            /* Background nyepesi */
+      --alt: #ffffff;            /* Alternative section */
+      --header-height: 70px;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: Arial, sans-serif; background: var(--bg); color: var(--secondary); scroll-behavior: smooth; }
+    a { text-decoration: none; }
+
+    /* Header */
+    header {
+      background: var(--alt);
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+    }
+    .container { width: 90%; max-width: 1100px; margin: auto; display: flex; align-items: center; justify-content: space-between; height: 100%; }
+    .logo { height:50px; width:auto; border-radius:8px; }
+
+    /* Nav */
+    .nav-links { list-style: none; display: flex; gap:1rem; }
+    .nav-links li { position: relative; }
+    .nav-links a { font-weight: bold; color: var(--secondary); padding:0.5rem 0.8rem; display:block; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Dropdown */
+    .dropdown-menu { display: none; position: absolute; top:100%; left:0; background: #fff; border:1px solid #ddd; min-width:180px; flex-direction: column; z-index:50; }
+    .dropdown-menu li { width:100%; }
+    .dropdown-menu a { padding:0.5rem 1rem; }
+    .dropdown:hover > .dropdown-menu { display: flex; }
+
+    /* Buttons */
+    .btn-primary { background: var(--primary); color:#fff; border-radius:6px; padding:0.5rem 1rem; font-weight:bold; }
+    .btn-secondary { background: var(--secondary); color:#fff; border-radius:6px; padding:0.5rem 1rem; font-weight:bold; }
+
+    /* Hamburger */
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap:5px; }
+    .hamburger div { width:25px; height:3px; background: var(--secondary); }
+
+    /* Hero */
+    .hero { text-align:center; padding:5rem 1rem 3rem; background: var(--alt); scroll-margin-top: var(--header-height); }
+    .tagline { color: var(--accent); font-weight:bold; font-size:1.2rem; }
+    .verse { font-style: italic; color:#555; margin:0.5rem 0 1rem; }
+
+    /* Sections */
+    section { padding:2rem 1rem; scroll-margin-top: var(--header-height); }
+    .section.alt { background: var(--alt); }
+    .section.highlight { background: #e6f4ea; }
+
+    /* Grid & Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; }
+    .card { background:#fff; border:1px solid #ddd; border-radius:8px; padding:1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+    /* Footer */
+    footer { background: var(--secondary); color:#fff; text-align:center; padding:1rem; }
+
+    /* Responsive */
+    @media(max-width:768px){
+      .nav-links { position:absolute; top:var(--header-height); right:0; background:#fff; flex-direction:column; width:200px; border-left:1px solid #ddd; border-bottom:1px solid #ddd; display:none; }
+      .nav-links.show { display:flex; }
+      .hamburger { display:flex; }
+      .dropdown-menu { position: static; border:none; display:none; }
+      .dropdown.show > .dropdown-menu { display:flex; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <img src="images/logo.png" alt="UMH Logo" class="logo">
+      <ul class="nav-links">
+        <li class="dropdown"><a href="#mwanzo">Mwanzo</a>
+          <ul class="dropdown-menu">
+            <li><a href="#hero-intro">Utangulizi</a></li>
+            <li><a href="#hero-tagline">Kauli Mbiu</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a href="#huduma">Huduma</a>
+          <ul class="dropdown-menu">
+            <li><a href="#kielimu">Kielimu</a></li>
+            <li><a href="#kiroho">Kiroho</a></li>
+            <li><a href="#kijamii">Kijamii</a></li>
+            <li><a href="#kiuchumi">Kiuchumi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a href="#sasisho">Sasisho</a></li>
+        <li class="dropdown"><a href="#kutuhusu">Kutuhusu</a></li>
+        <li class="dropdown"><a href="#sadaka" class="btn-primary">Sadaka</a></li>
+        <li class="dropdown"><a href="#mawasiliano">Mawasiliano</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <div></div><div></div><div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="mwanzo" class="hero">
+    <div class="container">
+      <h1>Utume wa Mama Hannah (UMH)</h1>
+      <p class="tagline">Upendo, Huruma, Ukarimu, na Ushirikiano wa Kanisa</p>
+      <p class="verse">“Mavuno ni mengi, lakini watenda kazi ni wachache” — Mathayo 9:37</p>
+      <a href="#huduma" class="btn-secondary">Gundua Huduma</a>
+      <a href="#sadaka" class="btn-primary">Changia Sasa</a>
+    </div>
+  </section>
+
+  <!-- Huduma -->
+  <section id="huduma" class="section">
+    <div class="container">
+      <h2>Huduma</h2>
+      <div class="grid">
+        <div class="card" id="kielimu"><h3>Kielimu</h3><p>Warsha na nyenzo za kujifunza.</p></div>
+        <div class="card" id="kiroho"><h3>Kiroho</h3><p>Huduma za imani na sala.</p></div>
+        <div class="card" id="kijamii"><h3>Kijamii</h3><p>Mitandao ya msaada na jamii.</p></div>
+        <div class="card" id="kiuchumi"><h3>Kiuchumi</h3><p>Uwezeshaji na rasilimali.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sasisho -->
+  <section id="sasisho" class="section alt">
+    <div class="container">
+      <h2>Sasisho</h2>
+      <p>Habari na matukio ya UMH.</p>
+    </div>
+  </section>
+
+  <!-- Kutuhusu -->
+  <section id="kutuhusu" class="section">
+    <div class="container">
+      <h2>Kutuhusu</h2>
+      <p><strong>Dira:</strong> Kuwategemeza Makatekista nchini.</p>
+      <p><strong>Dhima:</strong> Kuwafikia na kuwasaidia Makatekista.</p>
+      <p><strong>Kauli mbiu:</strong> Upendo, Huruma na Ukarimu.</p>
+    </div>
+  </section>
+
+  <!-- Sadaka -->
+  <section id="sadaka" class="section highlight">
+    <div class="container">
+      <h2>Sadaka kwa Makatekista</h2>
+      <p>Mchango wako ni mbegu ya upendo inayojenga Kanisa.</p>
+      <a href="#mawasiliano" class="btn-primary">Changia Sasa</a>
+    </div>
+  </section>
+
+  <!-- Mawasiliano -->
+  <section id="mawasiliano" class="section">
+    <div class="container">
+      <h2>Mawasiliano</h2>
+      <p><strong>Makao Makuu:</strong> Catholic Secretariat, TEC — Kurasini Centre</p>
+      <p>P.O. Box 2133, Dar es Salaam</p>
+      <p><strong>Simu:</strong> <a href="tel:+255715477720">+255 715 477 720</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> Utume wa Mama Hannah (UMH)</p>
+  </footer>
+
+  <script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function(e){
+        const targetId = this.getAttribute('href').substring(1);
+        const targetEl = document.getElementById(targetId);
+        if(targetEl){ e.preventDefault(); targetEl.scrollIntoView({behavior:'smooth'});}
+        document.querySelector('.nav-links').classList.remove('show');
+      });
+    });
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', ()=>{ navLinks.classList.toggle('show'); });
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('.dropdown > a').forEach(link=>{
+      link.addEventListener('click',(e)=>{
+        if(window.innerWidth<=768){
+          e.preventDefault();
+          link.parentElement.classList.toggle('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
